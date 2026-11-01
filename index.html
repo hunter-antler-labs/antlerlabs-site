@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antler Labs</title>
+<meta name="description" content="Antler Labs is an independent game studio making games about hunting and the outdoors. Our first game, Flush: Upland Bird Hunting, comes to the App Store in January 2027.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Antler Labs">
+<meta property="og:description" content="Flush: Upland Bird Hunting. Coming to the App Store, January 2027.">
+<meta property="og:image" content="https://antlerlabs.app/assets/flush-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #F04D31;
+    --orange: #EF7433;
+    --amber:  #F5A436;
+    --ink:    #1F1A17;
+    --muted:  #6B5F57;
+    --line:   #EEE5DC;
+    --paper:  #FFFFFF;
+    --warm:   #FBF6F1;
+    --grad: linear-gradient(120deg, var(--red), var(--orange) 55%, var(--amber));
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: var(--red); }
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    max-width: 1040px; margin: 0 auto;
+    height: 64px; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 38px; height: 38px; }
+  .brand span {
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.82rem; letter-spacing: 0.12em;
+    background: var(--grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.92rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover, nav a[aria-current="page"] { color: var(--red); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 72px 24px 80px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 55% 60% at 50% 35%, rgba(245,164,54,0.10), transparent 70%),
+      var(--paper);
+  }
+  .hero img {
+    width: min(380px, 80vw);
+    margin: 0 auto 32px;
+    animation: rise 0.8s ease both;
+  }
+  .hero p {
+    font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+    color: var(--muted);
+    max-width: 30em; margin: 0 auto;
+    animation: rise 0.8s 0.15s ease both;
+  }
+
+  /* ── LABEL ── */
+  .label {
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--orange);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .label::before {
+    content: ''; width: 24px; height: 2px; flex-shrink: 0;
+    background: var(--grad);
+  }
+
+  /* ── FLUSH ── */
+  .flush {
+    background: var(--warm);
+    border-top: 1px solid var(--line);
+    padding: 88px 24px;
+  }
+  .flush-card {
+    max-width: 920px; margin: 0 auto;
+    display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: center;
+  }
+  .flush-icon {
+    width: 240px; height: 240px;
+    border-radius: 22.5%;
+    box-shadow: 0 18px 40px -14px rgba(160,60,10,0.45), 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .flush h2 {
+    font-family: 'Michroma', sans-serif;
+    font-size: clamp(1.45rem, 3.4vw, 2rem);
+    line-height: 1.25; font-weight: 400;
+    margin-bottom: 18px;
+  }
+  .flush p { color: var(--muted); max-width: 34em; }
+  .flush p + p { margin-top: 14px; }
+  .soon {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 28px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    background: var(--ink); color: #fff;
+    font-weight: 500; font-size: 0.95rem;
+  }
+  .soon::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 0 4px rgba(245,164,54,0.25);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px solid; border-image: var(--grad) 1;
+    padding: 28px 24px;
+    font-size: 0.88rem; color: var(--muted);
+  }
+  .foot {
+    max-width: 1040px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 12px 28px;
+    align-items: center; justify-content: space-between;
+  }
+  .foot ul { display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; }
+  .foot a { color: var(--muted); text-decoration: none; }
+  .foot a:hover { color: var(--red); }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── PHONE ── */
+  @media (max-width: 720px) {
+    .bar { padding: 0 16px; }
+    nav ul { gap: 20px; }
+    .hero { padding: 48px 16px 56px; }
+    .flush { padding: 56px 16px 64px; }
+    .flush-card { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .flush-icon { width: 168px; height: 168px; margin: 0 auto; }
+    .flush .label { justify-content: center; }
+    .flush p { margin-left: auto; margin-right: auto; }
+    footer { padding: 24px 16px; }
+    .foot { flex-direction: column; text-align: center; }
+    .foot ul { justify-content: center; }
+  }
+  @media (max-width: 400px) {
+    .brand span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="/" class="brand"><img src="assets/antler-labs-icon.png" alt=""><span>ANTLER LABS</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#flush">Flush</a></li>
+        <li><a href="support/">Support</a></li>
+        <li><a href="privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1><img src="assets/antler-labs-logo.png" alt="Antler Labs" width="800" height="658"></h1>
+    <p>An independent game studio making games about hunting and the outdoors.</p>
+  </section>
+
+  <section class="flush" id="flush">
+    <div class="flush-card">
+      <img class="flush-icon" src="assets/flush-icon.png" alt="Flush app icon: a rooster pheasant flushing out of the grass" width="512" height="512">
+      <div>
+        <div class="label">Our first game</div>
+        <h2>Flush: Upland Bird Hunting</h2>
+        <p>Raise a bird dog from a pup and take it hunting for pheasant, chukar and quail in real places, each with its own birds and its own kind of cover.</p>
+        <p>Your dog works the field ahead of you. When the birds flush, tap to shoot. The more you hunt together, the more your dog learns.</p>
+        <div class="soon">Coming to the App Store, January 2027</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>&copy; 2026 Antler Labs LLC</div>
+    <ul>
+      <li><a href="support/">Support</a></li>
+      <li><a href="privacy/">Privacy</a></li>
+      <li><a href="mailto:hunter@antlerlabs.app">hunter@antlerlabs.app</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flush Support | Antler Labs</title>
+<meta name="description" content="Get help with Flush: Upland Bird Hunting. Email hunter@antlerlabs.app.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #F04D31;
+    --orange: #EF7433;
+    --amber:  #F5A436;
+    --ink:    #1F1A17;
+    --muted:  #6B5F57;
+    --line:   #EEE5DC;
+    --paper:  #FFFFFF;
+    --warm:   #FBF6F1;
+    --grad: linear-gradient(120deg, var(--red), var(--orange) 55%, var(--amber));
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: var(--red); }
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar {
+    max-width: 1040px; margin: 0 auto;
+    height: 64px; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 38px; height: 38px; }
+  .brand span {
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.82rem; letter-spacing: 0.12em;
+    background: var(--grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.92rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover, nav a[aria-current="page"] { color: var(--red); }
+
+  /* ── LABEL ── */
+  .label {
+    font-family: 'Michroma', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--orange);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .label::before {
+    content: ''; width: 24px; height: 2px; flex-shrink: 0;
+    background: var(--grad);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px solid; border-image: var(--grad) 1;
+    padding: 28px 24px;
+    font-size: 0.88rem; color: var(--muted);
+  }
+  .foot {
+    max-width: 1040px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 12px 28px;
+    align-items: center; justify-content: space-between;
+  }
+  .foot ul { display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; }
+  .foot a { color: var(--muted); text-decoration: none; }
+  .foot a:hover { color: var(--red); }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── PAGE ── */
+  .page-head {
+    background:
+      radial-gradient(ellipse 50% 80% at 85% 0%, rgba(245,164,54,0.12), transparent 70%),
+      var(--warm);
+    border-bottom: 1px solid var(--line);
+    padding: 64px 24px 48px;
+  }
+  .page-head .inner, .prose { max-width: 720px; margin: 0 auto; }
+  .page-head h1 {
+    font-family: 'Michroma', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    line-height: 1.25; font-weight: 400;
+  }
+  .page-head p { color: var(--muted); margin-top: 12px; }
+  .prose { padding: 48px 24px 80px; }
+  .prose h2 {
+    font-size: 1.2rem; font-weight: 700;
+    margin: 40px 0 10px;
+  }
+  .prose h2:first-child { margin-top: 0; }
+  .prose p, .prose li { color: #3E3631; }
+  .prose p + p { margin-top: 14px; }
+  .prose ul { margin: 12px 0 0 1.2em; }
+  .prose li + li { margin-top: 6px; }
+  .contact-box {
+    margin-top: 20px;
+    padding: 20px 22px;
+    background: var(--warm);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--orange);
+    border-radius: 6px;
+  }
+  .contact-box a { font-weight: 700; font-size: 1.1rem; text-decoration: none; overflow-wrap: anywhere; }
+  .faq { margin-top: 8px; }
+  .faq details {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+  }
+  .faq details + details { margin-top: 12px; }
+  .faq summary {
+    cursor: pointer; list-style: none;
+    padding: 18px 52px 18px 20px;
+    font-weight: 500; position: relative;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+'; position: absolute; right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem; line-height: 1; color: var(--orange);
+  }
+  .faq details[open] summary::after { content: '2'; }
+  .faq details p { padding: 0 20px 18px; }
+
+  /* ── PHONE ── */
+  @media (max-width: 720px) {
+    .bar { padding: 0 16px; }
+    nav ul { gap: 20px; }
+    .page-head { padding: 44px 16px 36px; }
+    .prose { padding: 36px 16px 64px; }
+    footer { padding: 24px 16px; }
+    .foot { flex-direction: column; text-align: center; }
+    .foot ul { justify-content: center; }
+  }
+  @media (max-width: 400px) {
+    .brand span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="../" class="brand"><img src="../assets/antler-labs-icon.png" alt=""><span>ANTLER LABS</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="../#flush">Flush</a></li>
+        <li><a href="../support/" aria-current="page">Support</a></li>
+        <li><a href="../privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="inner">
+      <div class="label">Flush: Upland Bird Hunting</div>
+      <h1>Support</h1>
+      <p>Questions, bugs or something that doesn't feel right? Get in touch.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <h2>Email us</h2>
+    <p>The fastest way to get help is an email. Antler Labs is a small studio, so you'll hear back from the person who made the game.</p>
+    <div class="contact-box">
+      <a href="mailto:hunter@antlerlabs.app?subject=Flush%20support">hunter@antlerlabs.app</a>
+    </div>
+    <p style="margin-top:20px;">If something went wrong, it helps to include:</p>
+    <ul>
+      <li>Your iPhone model and iOS version</li>
+      <li>What you were doing when it happened</li>
+      <li>A screenshot, if you have one</li>
+    </ul>
+
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Where is my progress saved?</summary>
+        <p>On your device. Flush keeps your dog, your level, your trophies and your settings in a file on your iPhone. Nothing is stored online.</p>
+      </details>
+      <details>
+        <summary>What happens if I delete the app?</summary>
+        <p>Your progress goes with it. Deleting Flush erases the save file, and there's no copy on our end to restore it from. If you install the game again, you'll start over with a new pup.</p>
+      </details>
+      <details>
+        <summary>Does Flush collect any of my data?</summary>
+        <p>No. There are no accounts, ads, analytics or tracking. The <a href="../privacy/">privacy policy</a> has the details.</p>
+      </details>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>&copy; 2026 Antler Labs LLC</div>
+    <ul>
+      <li><a href="../support/">Support</a></li>
+      <li><a href="../privacy/">Privacy</a></li>
+      <li><a href="mailto:hunter@antlerlabs.app">hunter@antlerlabs.app</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
